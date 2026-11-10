@@ -29,5 +29,3 @@ def rm_password():
 
             if service != service_to_remove:
                 f.write(line)
-
-rm_password()
