@@ -6,6 +6,11 @@ import hashlib, sys
 import secrets
 import string
 alphabet = string.ascii_letters + string.digits
+val = str(input("write here: "))
+if val == "no":
+    print("correct")
+else:
+    print("no")
 def make_password():
     password = ''.join(secrets.choice(alphabet) for i in range(20))  # for a 20-character password
     my_hash = hashlib.sha256(password.encode('utf-8')).hexdigest()
@@ -29,8 +34,6 @@ def rm_password():
 
             if service != service_to_remove:
                 f.write(line)
-<<<<<<< HEAD
-=======
 
 def change_password():
     service_to_change = input("Which service's password do you want to change?: ")
@@ -47,4 +50,3 @@ def change_password():
                 f.write(f"{service}: {new_hash}\n")
             else:
                 f.write(line)
->>>>>>> feature/add-function
