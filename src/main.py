@@ -50,3 +50,4 @@ def change_password():
                 f.write(f"{service}: {new_hash}\n")
             else:
                 f.write(line)
+                return
