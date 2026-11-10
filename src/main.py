@@ -30,4 +30,18 @@ def rm_password():
             if service != service_to_remove:
                 f.write(line)
 
-rm_password()
+def change_password():
+    service_to_change = input("Which service's password do you want to change?: ")
+
+    with open("hashed_password", "r") as f:
+        lines = f.readlines()
+
+    with open("hashed_password", "w") as f:
+        for line in lines:
+            service = line.split(":")[0]
+
+            if service == service_to_change:
+                new_hash = make_password()
+                f.write(f"{service}: {new_hash}\n")
+            else:
+                f.write(line)
